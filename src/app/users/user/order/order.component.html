@@ -1,0 +1,37 @@
+<mat-toolbar>My Orders</mat-toolbar>
+<div >
+<mat-card class="example-card">
+
+    <mat-card-content>
+          <div *ngIf=!cart>
+              <div class="example-container" >
+                  <mat-form-field>
+                    <input matInput placeholder="Enter your email" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                  <button mat-raised-button color="primary">My Orders</button>
+
+                </div>
+                
+          </div>
+       <div *ngFor="let item of productCart ; let i=index;">        
+      
+          <img src="./../../../assets/image/{{item.image}}" class="img-w-h"> 
+
+          <span> {{item.name}} </span>
+          <p>
+                  {{item.price}}
+          </p>
+        <p>{{item.count}}</p>
+         <p>
+                <b> Delvery expected by mon, 20th Oct </b>
+        </p>
+      </div>
+    </mat-card-content>
+   
+  </mat-card>
+
+ 
+  
+
+</div>

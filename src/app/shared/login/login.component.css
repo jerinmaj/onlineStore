@@ -1,0 +1,20 @@
+.example-container button {
+  width: 40%;
+  margin: 5px;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+ 
+  
+  .example-card {
+    width: 350px;
+    height: 350px;
+  }
+  /* .login-card{
+    background-color: blanchedalmond;
+  }
+  .signup-card{
+background-color: aqua;
+  } */

@@ -1,0 +1,98 @@
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color ="accent" (click) = "toggle('addMode')">Add Orders</button>
+    <button mat-raised-button color = "accent" (click) = "toggle('tableMode')"> Display Orders </button>
+   
+    <div *ngIf="(viewMode =='tableMode')
+  else(viewMode == 'addMode' ) ? showAddMode :
+  ((viewMode == 'editMode') ? showEditMode : showViewMode)">
+<h3>
+  Display All Orders
+</h3>
+   <mat-table [dataSource] = 'listData'>
+      <ng-container matColumnDef = 'id'>
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef = "let element">{{element.id}}</mat-cell> 
+     </ng-container>
+
+     <ng-container matColumnDef = 'username'>
+   <mat-header-cell *matHeaderCellDef >User Name</mat-header-cell>
+   <mat-cell *matCellDef = "let element">{{element.name}}</mat-cell>
+     </ng-container>
+     
+  <ng-container matColumnDef = 'status'>
+<mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+<mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
+</ng-container>
+<ng-container matColumnDef = "action">
+<mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
+<mat-cell *matCellDef = 'let element'>
+  <button mat-raised-button color ="primary" (click)= "viewOrderDetails(element)">
+    <mat-icon>view_list</mat-icon>
+  </button>
+  <button mat-raised-button (click)="editOrderDetails(element)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-raised-button color ="warn" (click)="deleteOrderDetails(element)">
+        <mat-icon>delete</mat-icon>
+      </button>
+</mat-cell>
+</ng-container>
+
+     <mat-header-row *matHeaderRowDef = 'displayedColumns '></mat-header-row>
+     <mat-row *matRowDef = "let row; columns:displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #showAddMode>
+  <h3>
+    Add New Order
+  </h3>
+
+</ng-template>
+<ng-template #showViewMode>
+  <h3>
+    View order
+  </h3><div>
+  <mat-card >
+    <mat-card-content>
+          <h3>
+            user Details
+          </h3>
+        <div>
+          <p>{{user.name}}</p>
+          <p>{{user.email}}</p>
+          <p>{{user.mobile}}</p>
+          <p>{{user.address}}</p>
+        </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+        <h3>
+          Cart Details
+        </h3>
+        <div *ngFor="let item of productCart ; let i=index;" >
+          <img src="./../../../assets/image/{{item.image}}" class="img-w-h"> 
+
+        <span> {{item.name}} </span>
+        <p>
+                {{item.price}}
+        </p>
+  
+        <span>
+        {{item.count}}
+        </span>
+  
+        </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+</ng-template>
+<ng-template #showEditMode>
+<h3>
+  Edit Order
+</h3>
+</ng-template>

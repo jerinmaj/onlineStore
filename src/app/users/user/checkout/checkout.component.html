@@ -1,0 +1,110 @@
+<mat-horizontal-stepper  linear #stepper>  
+  <mat-step [stepControl] = "addressForm"> 
+      <ng-template matStepLabel><b>Delivery Addess</b></ng-template>
+      <form class="example-form"  [formGroup]="addressForm">
+          <!-- <mat-form-field class="example-full-width">
+              <input matInput 
+              formControlName = 'id'
+              placeholder="id" 
+              name="id" >
+            </mat-form-field> -->
+           
+          <mat-form-field class="example-full-width">
+            <input matInput 
+            formControlName = 'name'
+            type="text"
+            placeholder="Name" 
+            name="uname" >
+            <mat-error *ngIf = "addressForm.get('name').invalid">{{getErrorMessage('name')}}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <input matInput 
+              placeholder="e-mail"  
+              formControlName = 'email'
+               name="email"
+               type="email">
+               <mat-error *ngIf = "addressForm.get('email').invalid">{{getErrorMessage('email')}}
+                </mat-error>
+            </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <textarea matInput 
+            placeholder="Address" 
+            formControlName = 'address'
+             name="address">
+            </textarea>
+            <mat-error *ngIf = "addressForm.get('address').invalid">{{getErrorMessage('address')}}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <input 
+              type="tel"
+               matInput 
+              placeholder="phone"
+              formControlName = 'phone'
+               name="phone">
+               <mat-error *ngIf = "addressForm.get('phone').invalid">{{getErrorMessage('phone')}}
+                </mat-error>
+            </mat-form-field>
+        </form>
+        
+    <div>
+        <button mat-raised-button matStepperNext [disabled]="!addressForm.valid" (click)="save()">Save&Continue</button>
+      </div>
+  </mat-step>
+  <mat-step [stepControl] = confirm >
+      <ng-template matStepLabel><b>Order Summery</b></ng-template>
+       
+      <table class="example-table">
+        <tr>
+          <th> <b>item </b></th>
+          <th> <b>Delivery Details </b> </th>
+          <th> <b>price </b></th>
+      </tr>
+      <tbody >
+         <tr *ngFor="let item of productsCart ; let i=index;">
+            <td>
+              <img src="./../../../assets/image/{{item.image}}" class="img-w-h">
+              
+                <span>{{item.name}}</span>
+               <p> Qunt: <span disabled>{{item.count}}</span></p>
+           </td>
+            <td> 
+              {{deliveryAddress.name}}
+              {{deliveryAddress.address}}
+              {{deliveryAddress.phone}}
+              <br>
+              by mon, 20th Oct 
+            
+          </td> 
+            <td> {{item.price}}</td>
+          
+          </tr>
+ <tr> <span mat-raised-button  > Total Amount {{this.total}}</span></tr>
+          </tbody>
+        </table>
+      
+    <div>
+        
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext  (click)="confirmOrder();">confirm Order</button>
+        <!-- <button mat-raised-button  > Total Amount</button> -->
+    </div>
+  </mat-step>
+  <mat-step >
+      <ng-template matStepLabel><b>Done</b></ng-template>
+     
+        <h3>Thank you for your order</h3>
+            <p>
+              Your order has been placed and is being processed
+            </p>
+   
+    <div>
+        <button mat-raised-button [routerLink]="['/home']">CONTINUE SHOPPING</button>
+        <button mat-raised-button [routerLink]="['/orders']" >MY Orders</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,40 @@
+.img-h-w{
+    width: 50px;
+    height: 50px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 400px;
+  }
+  .img-w-h-v{
+    float: left;
+    width: 95px;
+  }
+  /* table {
+    width: 80%;
+  } */
+  .example-container btn {
+    float: right;
+    width: 40%;
+    margin: 5px;
+    }
+   button{
+   margin-left: 5px;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    margin: 5px;
+  }
+  
+  td, th {
+    width: 20%;
+  }
+  .sh{
+    width: 50%;
+  }

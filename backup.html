@@ -1,0 +1,46 @@
+ 
+  <!-- <mat-grid-list cols ="5">
+  <mat-grid-tile *ngFor="let product of products">
+    <img src="./../../../assets/image/{{product.image}}">
+  </mat-grid-tile>
+</mat-grid-list>  -->
+
+<div>
+    <mat-grid-list cols ="6" rowHeight="450px" class="gridHeight">
+        <mat-grid-tile [colspan]="1" [rowspan]="6" class="h">
+            <side-nav class="_sidenav"></side-nav>
+        </mat-grid-tile>
+          <div> 
+           
+       
+      <mat-grid-tile [colspan]="1" *ngFor="let product of products">
+          
+         
+          <mat-card class="example-card">
+     <a  (click)="view(product);"> <img mat-card-image src="./../../../assets/image/{{product.image}}"></a>
+      <mat-card-content>
+          <!-- (click)="view(product);"  [routerLink]="['/user/product/view']"-->
+        {{product.name}}<br> 
+        price {{product.price}}
+      </mat-card-content>
+        <!-- <mat-card-actions>
+          <button mat-button></button>
+          <button mat-button></button>
+        </mat-card-actions> -->
+        </mat-card>
+      </mat-grid-tile>
+    </div> 
+    </mat-grid-list>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event">
+    </mat-paginator>
+    </div>
+    <!-- <div *ngFor="let product of products">
+      <img src="./../../../assets/image/{{product.image}}">
+      <span>{{product.name}}</span>
+      </div> -->
+     
+        

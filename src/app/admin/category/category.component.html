@@ -1,0 +1,66 @@
+
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color="accent" (click)="toggle('addMode')">Add New Item</button>
+    <button mat-raised-button color="accent" (click)="toggle('tableMode')">List all Item</button>
+    <div *ngIf="(viewMode == 'tableMode') 
+               else (viewMode == 'editMode') ? showEditMode :
+               ((viewMode == 'addMode') ? showAddMode : showViewMode)">
+               <h3>
+                Category List
+              </h3>
+              <div class="mat-elevation-z8">
+              <mat-table [dataSource]="listData">
+
+            
+          <ng-container matColumnDef="Id">
+              <mat-header-cell *matHeaderCellDef > Id </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+
+                 <ng-container matColumnDef = "name">
+                   <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                   <mat-cell *matCellDef = "let element">{{element.name}}</mat-cell>
+                 </ng-container>
+
+                  <ng-container matColumnDef = "action">
+                 <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                 <mat-cell *matCellDef = "let element">
+                   <button mat-raised-button color = 'primary' (click)="view(element)">
+                     <mat-icon>view_list</mat-icon>
+                   </button>
+                   <button mat-raised-button (click)="update(element)">
+                     <mat-icon>edit</mat-icon>
+                   </button>
+                   <button mat-raised-button color = 'warn' (click)= "delete(element)">
+                     <mat-icon>delete</mat-icon>
+                   </button>
+                 </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                 <mat-row *matRowDef = "let row ; columns : displayedColumns;"></mat-row>
+              </mat-table>
+              </div>
+       </div>
+
+  </mat-card-content>
+</mat-card>
+
+<ng-template #showAddMode>
+<h3>
+  Add New Category
+</h3>
+</ng-template>
+
+<ng-template #showEditMode>
+  <h3>
+    Edit Category
+  </h3>
+  </ng-template>
+
+  <ng-template #showViewMode>
+    <h3>
+      View Category
+    </h3>
+    
+    </ng-template>

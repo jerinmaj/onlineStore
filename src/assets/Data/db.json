@@ -1,0 +1,93 @@
+{
+  "product": [
+    {
+      "id": "1",
+      "category": "Mobile",
+      "name": "samsung1",
+      "image": "samsung1.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "2",
+      "category": "Mobile",
+      "name": "samsung2",
+      "image": "samsung2.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "3",
+      "category": "Mobile",
+      "name": "samsung3",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "4",
+      "category": "gents",
+      "name": "samsung4",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "5",
+      "category": "Mobile",
+      "name": "samsung5",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "6",
+      "category": "gents",
+      "name": "samsung6",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "7",
+      "category": "Mobile",
+      "name": "samsung7",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "8",
+      "category": "gents",
+      "name": "samsung8",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "9",
+      "category": "Mobile",
+      "name": "samsung9",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    },
+    {
+      "id": "10",
+      "category": "gents",
+      "name": "samsung10",
+      "image": "samsung3.jpeg",
+      "description": "This is Samsun Mobile",
+      "price": "10000"
+    }
+  ],
+  "user": [
+    {
+      "id": "2",
+      "userName": "Jerin Majeed",
+      "mobile": "9526126015",
+      "email": "jerin95@gmail.com",
+      "password": "jerinmajeed"
+    }
+  ]
+}

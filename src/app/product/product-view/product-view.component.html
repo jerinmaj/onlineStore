@@ -1,0 +1,36 @@
+
+<mat-grid-list cols="3" rowHeight="450px">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title></mat-card-title>
+      </mat-card-header>
+     
+      <mat-card-content class="card-h">
+          <img mat-card-image src="./../../../assets/image/{{product.image}}" alt="samsung1">
+      </mat-card-content>
+      <mat-card-actions>
+          <button mat-button  (click)="_addToCart();">ADD TO CART</button>
+          <button mat-button [routerLink]="['/cart']">BUY NOW</button>
+        </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+      <!-- <mat-card>
+        <mat-card-header>
+          <mat-card-title></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          
+        </mat-card-content>
+      </mat-card> -->
+      <div>
+          <h2>Description</h2>
+          {{product.name}}<br> 
+          price {{product.price}}<br> 
+          Description:{{product.description}}
+          
+      </div>
+    </mat-grid-tile>
+</mat-grid-list>

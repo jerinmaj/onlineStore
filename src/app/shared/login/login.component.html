@@ -1,0 +1,99 @@
+
+
+   <!-- <div  *ngIf="(viewMode=='login') else showAddMode ">
+    -->
+      
+          
+          <!-- <mat-grid-list cols="2" rowHeight="300px">
+              <mat-grid-tile>
+                    <form class="normal-form">
+                  <div class="controles-container">
+                  <input  type="hidden" formControlName="$key">
+                  <mat-form-field>
+                      <input matInput placeholder="name*" formControlName="name">
+                      <mat-error>This field is required</mat-error>
+                    </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="mobile*" formControlName="mobile">
+                    <mat-error *ngIf="userRegister.form.controls['mobile'].errors?.required">This field is required</mat-error>
+                    <mat-error *ngIf="userRegister.form.controls['mobile'].errors?.minlenth">Minimum 8 charactors needed</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input matInput placeholder="email*" formControlName="email">
+                      <mat-error>Invalid email address</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="password*" formControlName="password">
+                        
+                      </mat-form-field>
+                      <div class="button-row">
+                          <button mat-raised-button color="primary" type="submit" [disabled]="userRegister.form.Invalid">Submit</button>
+                          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+                      </div>
+                </div>
+            </form>
+              </mat-grid-tile>
+              <mat-grid-tile>
+
+              </mat-grid-tile>
+            </mat-grid-list>
+             -->   
+    <!-- </div> -->
+    
+<!-- <ng-template #showAddMode>
+
+  this is signup
+</ng-template> -->
+
+<mat-grid-list cols="3" rowHeight="500px">
+    <mat-grid-tile>
+
+       <form class="normal-form">
+            <mat-card class="example-card login-card">
+                 <mat-card-header>
+                <mat-card-title>Login</mat-card-title>
+              </mat-card-header>
+                <mat-card-content>
+                <div class="example-container">
+                        <mat-form-field>
+                            <input matInput placeholder="username" [(ngModel)]="loginform.username"  name="username" >
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="password" [(ngModel)]="loginform.password"  name="password" >
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" (click)="login(loginform);">Login</button>
+                     <button mat-raised-button color="warn" (click)="clear();">Cancel</button>
+                    </div>
+                </mat-card-content>
+           </mat-card>
+          
+       </form>
+   </mat-grid-tile>
+   <mat-grid-tile>
+    <form class="normal-form ">
+            <mat-card class="example-card signup-card">
+                    <mat-card-header>
+                   <mat-card-title>SignUp</mat-card-title>
+                 </mat-card-header>
+                   <mat-card-content>
+            <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="username" [(ngModel)]="userRegister.name"  name="username" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="mobile" [(ngModel)]="userRegister.mobile"  name="username" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="username" [(ngModel)]="userRegister.email"  name="username" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="password" [(ngModel)]="userRegister.password"  name="password" >
+        </mat-form-field>
+     <button mat-raised-button color="primary" (click)="createUser(userRegister);">SignUp</button>
+     <button mat-raised-button color="warn" (click)="createUser(userRegister);">Cancel</button>
+</div>
+</mat-card-content>
+</mat-card>
+    </form>
+   </mat-grid-tile>
+</mat-grid-list>

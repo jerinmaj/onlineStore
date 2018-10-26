@@ -1,0 +1,178 @@
+<div><mat-card>
+  <mat-card-content>
+    <button mat-raised-button  (click)="toggle('addMode')"><mat-icon> add</mat-icon></button>
+    <button mat-raised-button  (click)="toggle('displayMode')"><mat-icon>view_list</mat-icon></button>
+
+    <div *ngIf="(viewMode=='displayMode')
+     else (viewMode=='addMode') ? showAddMode: 
+     ((viewMode=='editMode')? showEditMode :showViewMode
+     )">
+      <!-- <form #searchFormData="ngForm" class="example-form"></form> -->
+      <h3>
+        Products
+      </h3>
+      <div class="mat-elevation-z8">
+          <mat-form-field class="sh">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        <mat-table [dataSource]="listData" matSort>
+
+          <ng-container matColumnDef="Id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Image">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> image </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <img class="img-h-w" src="./../../../assets/image/{{element.image}}">
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Category">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> category </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Price">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> price </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Action">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-mini-fab color="primary" (click)="Tview(element)">
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+              <button mat-mini-fab (click)="Tupdate(element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="Tdelete()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <!-- <ng-container matColumnDef="Action"></ng-container> -->
+          <!-- 'image','id','category','name','description','price' -->
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>
+<ng-template #showAddMode>
+  <h3>
+    Add New Product
+  </h3>
+
+  <mat-card>
+    <mat-card-content>
+        <form [formGroup]="addForm" (ngSubmit)="onAddSubmit()">
+          <div>
+          <!-- <img src="./../../../assets/image/samsung1.jpeg" class="img-w-h-v" > -->
+
+        </div>
+          <div class="example-container">
+                <mat-form-field>
+                  <mat-select  placeholder="category" formControlName='category' name="category">
+                    <mat-option *ngFor = "let item of category" [value]="item.value" >
+                    {{item.value}}
+                    </mat-option>
+                  </mat-select>
+                    <!-- <input matInput placeholder="category" formControlName='category' name="category"> -->
+                     <mat-error *ngIf = "addForm.get('category').invalid">{{getErrorMessage('category')}}</mat-error>
+                    </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="name" formControlName='name' name="name">
+                <mat-error *ngIf = "addForm.get('name').invalid">{{getErrorMessage('name')}}</mat-error>
+              </mat-form-field>
+               <mat-form-field>
+                <input matInput placeholder="price" formControlName='price' name="price">
+                <mat-error *ngIf = "addForm.get('price').invalid">{{getErrorMessage('price')}}</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="count" formControlName='count' name="count">
+                  <mat-error *ngIf = "addForm.get('count').invalid">{{getErrorMessage('count')}}</mat-error>
+                </mat-form-field>
+              <mat-form-field>
+                  <textarea matInput placeholder="Description" formControlName='description' name="description"></textarea>
+                </mat-form-field>
+                <div class="btn" >
+                    <button  mat-raised-button color="primary" type="submit">Save</button>
+                    <button mat-raised-button type="reset" >Cancel</button>
+                  </div>
+            </div>
+          </form>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<ng-template #showEditMode>
+  <h3>
+  Update Product
+  </h3>
+  <mat-card>
+    <mat-card-content>
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdateSubmit()">
+          <div>
+          <img src="./../../../assets/image/samsung1.jpeg" class="img-w-h-v" >
+        </div>
+          <div class="example-container">
+                <mat-form-field>
+                    <mat-select  placeholder="category" formControlName='category' name="category">
+                        <mat-option *ngFor = "let item of category" [value]="item.value" >
+                        {{item.value}}
+                        </mat-option>
+                      </mat-select>
+                     <mat-error *ngIf = "updateForm.get('category').invalid">{{getErrorMessage('category')}}</mat-error>
+                    </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="name" formControlName='name' name="name">
+                <mat-error *ngIf = "updateForm.get('name').invalid">{{getErrorMessage('name')}}</mat-error>
+              </mat-form-field>
+               <mat-form-field>
+                <input matInput placeholder="price" formControlName='price' name="price">
+                <mat-error *ngIf = "updateForm.get('price').invalid">{{getErrorMessage('price')}}</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="count" formControlName='count' name="count">
+                  <mat-error *ngIf = "updateForm.get('count').invalid">{{getErrorMessage('count')}}</mat-error>
+                </mat-form-field>
+              <mat-form-field>
+                  <textarea matInput placeholder="Description" formControlName='description' name="description"></textarea>
+                </mat-form-field>
+                <div class="btn" >
+              <button  mat-raised-button color="primary" type="submit">Update</button>
+              <button mat-raised-button  type="reset" >Cancel</button>
+            </div>
+            </div>
+          </form>
+    </mat-card-content>
+  </mat-card>
+ 
+</ng-template>
+<ng-template #showViewMode>
+    <h3>
+        Product Details
+      </h3>
+      <mat-card>
+        <mat-card-content>
+          <img src="./../../../assets/image/samsung1.jpeg" class="img-w-h-v" >
+          <p>product name</p>
+          <p>product category</p>
+          <p>product price</p>
+          <p>product count</p>
+          <p>product description</p>
+        </mat-card-content>
+      </mat-card>
+</ng-template> 

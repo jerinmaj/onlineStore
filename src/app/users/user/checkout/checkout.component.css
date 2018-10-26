@@ -1,0 +1,29 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .img-w-h{
+    width: 120px;
+    height: 120px;
+    float: left;
+}
+.btn-w{
+  float: left;
+  width: 88px;
+
+}
+.example-table{
+  width: 500px;
+
+}
+.example-table td{
+  padding: 10px;
+  vertical-align: top;
+
+}

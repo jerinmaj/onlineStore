@@ -1,0 +1,25 @@
+/* .card-w-h{
+    height:175px;
+    width: 300px
+} */
+.example-card {
+  max-width: 400px;
+}
+
+
+._sidenav{
+  float: left;
+  width: 195px;
+height: 100%;
+  margin-top: 40px;
+  
+}
+mat-paginator{margin: 5px !important;}
+
+ .gridHeight{
+    height: 790px !important;
+    background-color: beige;
+} 
+.h{
+  height: 800px !important;
+}
