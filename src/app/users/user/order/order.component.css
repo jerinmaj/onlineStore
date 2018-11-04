@@ -13,3 +13,21 @@
 display: inline-block;
 width: 0px;
   }
+  .item{
+      margin: 5px;
+      padding: 2px;
+  }
+
+  .productsDetails{
+      width: 45%;
+     
+      margin: 3px;
+      padding: 4px;
+  }
+  .address{
+      width: 40%;
+      float: right;
+      margin: 2px;
+      
+      
+  }

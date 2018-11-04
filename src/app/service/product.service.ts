@@ -9,9 +9,10 @@ import { Product } from '../model/product';
 })
 export class ProductService {
   constructor(public global :GlobalProvider,private http : HttpClient) { }
+  
   _listProducts(category,page){
     console.log("inside listProduct function under productService");
-    let api="http://localhost/shopping-cart/backend/web/index.php/product/index";
+    let api="/api/index.php/product/index";
     return this.http.get<Product[]>(api);      
     //return this.http.get<Product[]>(api+"&page="+page+category);
 
@@ -20,7 +21,7 @@ export class ProductService {
   _viewProduct(productId:number){
     console.log("inside _viewProduct function under Service");
     console.log("productId="+productId)
-    let api=`http://localhost/shopping-cart/backend/web/index.php/product/view?id=${productId}`;
+    let api=`/api/index.php/product/view?id=${productId}`;
    // let api=`http://localhost/api/backend/web/product/view?id=1`;
 
     return this.http.get(api);

@@ -1,0 +1,36 @@
+{
+
+    "DeliveryAddress":
+     {
+  
+      "address": "bncfvbn",
+      "email": "n cvf nc",
+      "name": "n g",
+      "phone": "12344"
+    },
+  
+    "productsCart":
+     [
+       {
+      "category": "Mobile",
+       "count": "4",
+      "description": "This is Samsun Mobile",
+      "id": "5",
+      "image": "samsung3.jpeg",
+      "name": "samsung5",
+       "price": "10000"
+    },
+    {
+      "category": "Mobile",
+       "count": "4",
+      "description": "This is Samsun Mobile",
+      "id": "5",
+      "image": "samsung3.jpeg",
+      "name": "samsung5",
+       "price": "10000"
+    }
+   ],
+    "totelAmount": "50000"
+  
+   }
+  

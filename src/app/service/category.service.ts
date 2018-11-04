@@ -15,14 +15,14 @@ export class CategoryService {
     ) { }
 
     listCategories(){
-      let api="http://localhost/shopping-cart/backend/web/index.php/product/categories";
+      let api="/api/index.php/product/categories";
       console.log('inside listcategories function under categoryService');
       // return this.http.get(this.global.API_ENDPOINT+"/category");
       return this.http.get(api);
     }
 
     listproductbyCategorywise(){
-      let api =' http://localhost/shopping-cart/backend/web/index.php/product/products?category=mobile';
+      let api ='/api/index.php/product/products?category=mobile';
       console.log("category wise");
       return this.http.get(api);
     }

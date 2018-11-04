@@ -1,0 +1,55 @@
+{
+    "DeliveryAddress": {
+        "address": "bncfvbn",
+        "email": "n@gmail.com",
+        "name": "n g",
+        "phone": 12344
+    },
+    "productsCart": {
+        "orders": [
+            {
+                "orderId": 1,
+                "totelAmount": 50000
+            },
+            {
+                "category": 1,
+                "count": 4,
+                "description": "This is Samsun Mobile",
+                "image": "samsung3.jpeg",
+                "name": "samsung5",
+                "price": 10000
+            },
+            {
+                "category": 1,
+                "count": 4,
+                "description": "This is Samsun Mobile",
+                "image": "samsung3.jpeg",
+                "name": "samsung5",
+                "price": 10000
+            }
+        ],
+        "order2": [
+            {
+                "orderId": 2,
+                "totelAmount": 50000
+            },
+            {
+                "category": 1,
+                "count": 4,
+                "description": "This is Samsun Mobile",
+                "image": "samsung3.jpeg",
+                "name": "samsung5",
+                "price": 10000
+            },
+            {
+                "category": 1,
+                "count": 4,
+                "description": "This is Samsun Mobile",
+                "image": "samsung3.jpeg",
+                "name": "samsung5",
+                "price": 10000
+            }
+        ]
+        
+    }
+}

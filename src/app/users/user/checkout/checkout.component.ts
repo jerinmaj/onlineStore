@@ -72,7 +72,7 @@ totalAmount(){
   confirmOrder(){
        this.userService.order(this.deliveryAddress,this.total);
        this.confirm = true;
-       this.cookieService.set('userCart','');
+       //
        this.compInteraction.sendCartCount();
 
       //  .subscribe((data:any)=>{

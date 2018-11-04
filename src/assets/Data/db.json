@@ -81,7 +81,7 @@
       "price": "10000"
     }
   ],
-  "user": [
+  "user": 
     {
       "id": "2",
       "userName": "Jerin Majeed",
@@ -89,5 +89,6 @@
       "email": "jerin95@gmail.com",
       "password": "jerinmajeed"
     }
-  ]
+  
+  
 }

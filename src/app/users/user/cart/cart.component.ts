@@ -12,6 +12,7 @@ import { GlobalProvider } from './../../../globalprovider';
 export class CartComponent implements OnInit {
 public rowHeight="400px";
   public content="150px";
+  _isUserCartEmpty: boolean = true;
   productsCart :Product[]=[];
 //_count=1;
 //msg=false;
@@ -31,6 +32,7 @@ amount:number =0;
        console.log("array length",this.productsCart.length)
        console.log("row Height=",this.rowHeight);
        console.log("cart productsCart=", this.productsCart);
+       this._isUserCartEmpty = false;
      
     }
     

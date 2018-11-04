@@ -1,3 +1,6 @@
-.card-h{
+ .card-h{
+    height: 340px;
+} 
+.card-h img{
     height: 340px;
 }

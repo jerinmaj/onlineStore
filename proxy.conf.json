@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+      "target": "http://localhost/shopping-cart/backend/web/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {"^/api" : ""}
+    }
+    }

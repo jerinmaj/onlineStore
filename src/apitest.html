@@ -1,0 +1,136 @@
+<!-- 
+E-commerce Api List
+<html
+Front end
+
+1. List All Product   [ with search , categorywise list, pagination]   :  apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/index
+
+    
+    
+2. Product categories               : apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/categories
+
+
+
+3. Display particular category products:   apilink  =
+
+http://localhost/shopping-cart/backend/web/index.php/product/products?category=mobile
+
+
+
+
+4. Product details view            : apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/view?id=1
+
+
+
+5. Order Summery                   : apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/customer_adding
+
+
+body =
+
+{
+
+    "DeliveryAddress":
+     {
+ 
+      "address": "bncfvbn",
+      "email": "n@gmail.com",
+      "name": "n g",
+      "phone": 12344
+    },
+ 
+    "productsCart":
+     [
+       {
+      "category": 1,
+       "count": 4,
+      "description": "This is Samsun Mobile",
+      "image": "samsung3.jpeg",
+      "name": "samsung5",
+       "price": 10000
+    },
+    {
+      "category": 1,
+       "count": 4,
+      "description": "This is Samsun Mobile",
+      "image": "samsung3.jpeg",
+      "name": "samsung5",
+       "price": 10000
+    }
+   ],
+    "totelAmount": 50000
+ 
+   }
+ 
+
+
+
+6. Current user orders               : apilink  =
+http://localhost/shopping-cart/backend/web/index.php/product/list?email=susmi@gmail.com
+
+
+
+
+
+--------------------------------------
+
+Back end
+
+1. Categories CRUD
+list all Categories  [ with search ,sort, pagination]   : apilink = 
+http://localhost/shopping-cart/backend/web/index.php/product/list_category
+
+
+Add new Categorey   : apilink =
+    http://localhost/shopping-cart/backend/web/index.php/product/category_adding (body{“category_name”:”name”}
+
+update Categorey       : apilink  =
+http://localhost/shopping-cart/backend/web/index.php/product/update
+
+view Categorey          :  apilink =
+delete Category          : apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/delete
+
+
+2. Product CRUD.
+list all Products  [ with search ,sort, pagination]      : apilink = 
+http://localhost/shopping-cart/backend/web/index.php/product/index
+
+
+Add new Product       : apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/create
+
+
+update Product           : apilink  =
+ http://localhost/shopping-cart/backend/web/index.php/product/update_product
+
+view Product              :  apilink =
+ http://localhost/shopping-cart/backend/web/index.php/product/view
+
+delete Product            : apilink =
+ http://localhost/shopping-cart/backend/web/index.php/product/delete_product
+
+     
+3. Orders CRUD
+list all Orders   [ with search ,sort, pagination]       : apilink = 
+
+view Order                :  apilink =
+cancel Order              : apilink =
+
+4. Users CRUD.
+list all Users   [ with search ,sort, pagination]     : apilink = 
+ http://localhost/shopping-cart/backend/web/index.php/product/list_customer
+
+Add new User       : apilink =
+update   Users        : apilink  =
+view    Users          :  apilink =
+http://localhost/shopping-cart/backend/web/index.php/product/view_customer
+delete   Users          : apilink =
+ http://localhost/shopping-cart/backend/web/index.php/product/delete_customer
+
+
+
+ -->
