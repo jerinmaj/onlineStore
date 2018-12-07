@@ -21,8 +21,8 @@ export class CategoryService {
       return this.http.get(api);
     }
 
-    listproductbyCategorywise(){
-      let api ='/api/index.php/product/products?category=mobile';
+    listproductbyCategorywise(category,page){
+      let api =`/api/index.php/product/products?category=${category}&page=${page}`;
       console.log("category wise");
       return this.http.get(api);
     }

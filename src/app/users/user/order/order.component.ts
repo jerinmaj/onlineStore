@@ -16,12 +16,14 @@ export class OrderComponent implements OnInit {
     cart: boolean = false;
     DeliveryAddress : DeliveryAddress[] =[];
     totalAmount: number;
+    isLoadingResults:boolean =true;
     constructor(
         private cookieService: CookieService,
         private userService: UserService
     ) { }
     uorders;
-
+ noOrders:string ='';
+ afterDataLoad:boolean = false;
     email = new FormControl('', [Validators.required, Validators.email]);
 
     getErrorMessage() {
@@ -45,13 +47,22 @@ export class OrderComponent implements OnInit {
     }
     UserOrder() {
         console.log("inside user order");
+        this.isLoadingResults=true;
         this.userService.currentUserOrder(this.email.value).
             subscribe(
                 (data: any) => {
+                    if(data.orders){
+                    console.log("response: ",data);
                     this.cart = true;
-                    console.log("view order Details result", data);
+                    this.isLoadingResults=false;                    
                     this.uorders = data.orders;
+                    console.log("orderDetails",this.uorders);
                 }
+                else {console.log("no data");
+                this.cart = false;
+                this.noOrders = data.data;
+             }
+            }
             );
         console.log("email:", this.email.value);
     }
@@ -67,11 +78,12 @@ export class OrderComponent implements OnInit {
     cancelOrder(orderid:number,productid:number) {
         console.log("inside cancel order");
         console.log("orderId:"+orderid +" productId:" +productid);
+        if(confirm('Are you sure to cancel this order ?')){
         this.userService.cancelOrder(orderid,productid).subscribe((data:any)=>{
             console.log(data);
             this.UserOrder();
-        })
-
+        });
+    }
     }
 
 }

@@ -2,10 +2,11 @@
 <!-- <mat-grid-list cols="3" rowHeight="{{rowHeight}}">
 <mat-grid-tile 
 [colspan]="3"> -->
-<mat-toolbar>My Cart</mat-toolbar>
+<!-- <mat-toolbar></mat-toolbar> -->
 <mat-card class="example-card">
                 
         <mat-card-header>
+                <mat-card-title><h4>My Cart</h4></mat-card-title>
             </mat-card-header> 
     <mat-card-content >
            <!-- <span *ngIf ="this.msg">
@@ -13,24 +14,24 @@
            </span> -->
 
         <div  *ngFor="let item of productsCart ; let i=index;" id="{{i}}">
-       <img src="./../../../assets/image/{{item.image}}" class="img-w-h"> 
-
+       <img src="{{item.image}}" class="img-w-h"> 
+     
         <span> {{item.name}} </span>
         <p>
-                {{item.price}}
+                ₹{{item.price}}
         </p>
        <!-- <button mat-mini-fab (click)="_count_decriment(item);">-</button> -->
-       <button mat-mini-fab (click)="_count_decrement(i);">-</button>
-       <button mat-raised-button disabled >{{item.count}}</button>
-        <button mat-mini-fab (click)="_count_increment(i);">+</button>
+       <button mat-icon-button color="primary" (click)="_count_decrement(i);">-</button>
+       <button mat-icon-button disabled >{{item.count}}</button>
+        <button mat-icon-button color="primary" (click)="_count_increment(i);">+</button>
         <!-- <button mat-button>SAVE FOR LATER</button> -->
-        <button mat-button (click)="remove(i);">REMOVE</button>
-        <mat-divider></mat-divider>
+        <button mat-button color="warn" (click)="remove(i);"><mat-icon>remove_shopping_cart</mat-icon></button>
+        <!-- <mat-divider></mat-divider> -->
 </div>
     </mat-card-content>
     <mat-card-actions>
-            <button mat-button [routerLink]="['/home']">CONTINUE SHOPPING</button>
-            <button [disabled]='_isUserCartEmpty' mat-button [routerLink]="['/checkout']">CHECKOUT</button>
+            <button mat-button [routerLink]="['/home']" color="primary">CONTINUE SHOPPING</button>
+            <button [disabled]='_isUserCartEmpty' color="primary" mat-button [routerLink]="['/checkout']">CHECKOUT</button>
           </mat-card-actions>
 </mat-card>
 

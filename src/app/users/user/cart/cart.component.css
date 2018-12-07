@@ -13,9 +13,10 @@
   
 }  */
 .example-card {
-  max-width: 100%;
+  max-width: 50%;
+  margin: 100px;
   
 }
 .mat-card-content{
-  width: 500px;
+  /* width: 500px; */
 }

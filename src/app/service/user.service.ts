@@ -5,7 +5,7 @@ import { GlobalProvider } from '../globalprovider';
 import { Router } from '@angular/router';
 import { LoginForm } from '../model/loginForm';
 import { CookieService } from 'ngx-cookie-service';
-import { DeliveryAddress } from './../model/deliveryAddress';
+import { DeliveryAddress} from './../model/deliveryAddress';
 import { Product } from '../model/product';
 
 @Injectable({
@@ -127,7 +127,14 @@ export class UserService {
       )
   }
 
+userStatus(DeliveryAddress:DeliveryAddress)
+{
+  console.log("inside User status Check function");
+let email =DeliveryAddress.email;
+let api = `api/index.php/product/user_checking?email=${email}`;
+    return this.http.get(api);
 
+}
   order(DeliveryAddress: DeliveryAddress, totelAmount: number) {
     console.log("inside Order function under Userservice");
 
@@ -149,15 +156,8 @@ export class UserService {
     };
     // return this.http.get(this.global.API_ENDPOINT+"/product/"+productId);
     let api = "api/index.php/product/customer_adding";
-    this.http.post(api, data).
-      subscribe((data: any) => {
-        console.log(data);
-        this.cookieService.delete('userCart');
-
-      }, (err: any) => {
-        console.log(err);
-      },
-        () => { });
+    return this.http.post(api, data);
+     
     //  let msg=" Your order has been placed and is being processed";
     //  return msg;
   }

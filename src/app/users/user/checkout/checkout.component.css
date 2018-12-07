@@ -9,9 +9,9 @@
   }
 
   .img-w-h{
-    width: 120px;
-    height: 120px;
-    float: left;
+    width: 90px;
+    height: 90px;
+   
 }
 .btn-w{
   float: left;
@@ -26,4 +26,13 @@
   padding: 10px;
   vertical-align: top;
 
+}
+.cnfbtn{
+  margin: 3px;
+  width: 25px;
+}
+.s-img-w-h{
+  width: 60px;
+  height: 60px;
+  
 }

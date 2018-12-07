@@ -6,18 +6,35 @@
 </mat-grid-list>  -->
 
 <div>
-  <mat-grid-list cols ="6" rowHeight="390px" class="gridHeight">
-      <mat-grid-tile [colspan]="1" [rowspan]="6" class="h">
+  <!-- <mat-grid-list cols ="6" rowHeight="390px" class="gridHeight"> -->
+      <!-- <mat-grid-tile [colspan]="1" [rowspan]="6" class="h">
           <side-nav class="_sidenav"></side-nav>
-      </mat-grid-tile>
-        <div> 
+      </mat-grid-tile> -->
+         <!-- <div>  -->
          
      
-    <mat-grid-tile [colspan]="1" *ngFor="let product of products">
+    <!-- <mat-grid-tile [colspan]="1" *ngFor="let product of products"> -->
         
-       
-        <mat-card class="example-card">
-   <a  (click)="view(product);"> <img mat-card-image src="./../../../assets/image/{{product.image}}"></a>
+<mat-form-field>
+  <h3>Select Category</h3>
+  <mat-select  [(ngModel)]="selectedOption" (selectionChange)='selectOption($event.value)' >
+  <mat-option *ngFor = 'let category of categories' [value]='category'>
+    {{category}}
+  </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- <mat-form-field>
+  <mat-select placeholder="Favorite food">
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+<div class="h">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <mat-card class="example-card" *ngFor="let product of products">
+   <a  (click)="view(product);"> <img class="imgSize" mat-card-image src="{{product.image}}"></a>
     <mat-card-content>
         <!-- (click)="view(product);"  [routerLink]="['/user/product/view']"-->
       {{product.name}}<br> 
@@ -28,15 +45,18 @@
         <button mat-button></button>
       </mat-card-actions> -->
       </mat-card>
-    </mat-grid-tile>
+    <!-- </mat-grid-tile>
   </div> 
-  </mat-grid-list>
+  </mat-grid-list> -->
+</div>
+<div>
   <mat-paginator [length]="length"
               [pageSize]="pageSize"
               [hidePageSize]="true"
               (page)="pageEvent2($event)"
-              >
+             class="pagination" >
 </mat-paginator>
+</div>
 <!-- (page)="pageEvent = $event"  -->
   </div>
   <!-- <div *ngIf="pageEvent">

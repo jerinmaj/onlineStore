@@ -4,8 +4,16 @@
         position: fixed; */
     flex: 1 1 auto;
   }
-  .mat-toolbar{
-   
+  /* .mat-toolbar{
+    left: 0;
      top: 0px;
-     bottom: 2px;
-  }
+     margin-bottom: 2px;
+     position: fixed;
+  } */
+  .mat-toolbar{
+    position: fixed; 
+   left: 0;
+    top: 0px;
+    margin-bottom: 2px;
+    z-index: 9;
+ }

@@ -3,9 +3,18 @@
     width: 300px
 } */
 .example-card {
-  max-width: 400px;
+max-width: 398px;
+width: 174px;
+float: left;
+margin-left: 19px;
+margin-top: 6px;
+margin-bottom: 4px;
 }
 
+.imgSize{
+  height: 250px;
+  width: 200px;
+}
 
 ._sidenav{
   float: left;
@@ -14,12 +23,19 @@ height: 100%;
   margin-top: 40px;
   
 }
-mat-paginator{margin: 5px !important;}
+/* mat-paginator{margin: 5px !important;}
 
  .gridHeight{
     height: 790px !important;
     background-color: beige;
-} 
+}  */
 .h{
-  height: 800px !important;
+  height: 650px !important;
 }
+/* .pagination{
+  position: fixed;
+float: right;
+  bottom: 0px;
+  margin-top: 2px;
+  text-align: center;
+} */

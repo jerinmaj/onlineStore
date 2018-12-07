@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import{Product} from './../../../model/product';
 import { GlobalProvider } from './../../../globalprovider';
+import { CompInteractionService } from 'src/app/service/comp-interaction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cart',
@@ -17,7 +19,11 @@ public rowHeight="400px";
 //_count=1;
 //msg=false;
 amount:number =0;
-  constructor(private cookieService :CookieService,public globalProvider :GlobalProvider) {
+  constructor(
+    private cookieService :CookieService,
+    public globalProvider :GlobalProvider,
+  private compInteraction: CompInteractionService,
+  private router: Router) {
 
    // this.globalProvider.productsCart=[];
     //this.cookieService.set('userCart',"[]");
@@ -34,6 +40,10 @@ amount:number =0;
        console.log("cart productsCart=", this.productsCart);
        this._isUserCartEmpty = false;
      
+    }
+    else{
+      alert("cart is empty");
+      this.router.navigate(['/home']);
     }
     
   }
@@ -108,6 +118,7 @@ remove(index){
   //delete this.globalProvider.productsCartCart[index];
   //console.log("Updated cart:",this.globalProvider.productsCartCart);
   this.cookieService.set('userCart',JSON.stringify(cartData)); 
+  this.compInteraction.sendCartCount();
   this._displayCart();
 }
 }

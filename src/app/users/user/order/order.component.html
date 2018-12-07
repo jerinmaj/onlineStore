@@ -7,63 +7,65 @@
           <input matInput placeholder="Enter your email" [formControl]="email">
           <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)='UserOrder();'>Check Orders</button>
+        <button mat-raised-button color="primary" [disabled]='email.invalid || afterDataLoad' (click)='UserOrder();'>Check Orders</button>
 
       </div>
       <div>
-        <div *ngIf =cart>
-        <!-- <mat-card *ngIf =cart>
+        <div *ngIf=!cart>
+          <mat-error> {{noOrders}} </mat-error>
+        </div>
+        <div *ngIf=cart>
+          <!-- <mat-card *ngIf =cart>
           <mat-card-content> -->
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
 
-            <div *ngFor="let order of uorders ; let i=index;" >
-              <!-- <p>orderid :{{order.order_id}}</p>
+          <div *ngFor="let order of uorders ; let i=index;">
+            <!-- <p>orderid :{{order.order_id}}</p>
                       <p>total Quantity : {{order.totalQuantity}}</p>
                       <p>total Amount :{{order.totelAmount}}</p> -->
-                      <div class="address">
-                          <h3>
-                            DeliveryAddress
-                          </h3>
-          
-                          <p>{{order.DeliveryAddress.name}}</p>
-                          <p>{{order.DeliveryAddress.email}}</p>
-                          <p>{{order.DeliveryAddress.mobile}}</p>
-                          <p>{{order.DeliveryAddress.address}}</p>
-          
-                        </div>
-          
-              <div>
-                <div *ngFor='let product of order.products' class="productsDetails" >
+            <div class="address">
+              <h3>
+                DeliveryAddress
+              </h3>
 
-                  <div> <img src="./../../../assets/image/{{product.image}}" class="img-w-h">
-                  </div>
-                  <div>
-                    <span> name: {{product.name}} </span>
-                    <p>
-                      price : ₹ {{product.price}}
-                    </p>
-
-                    <p>
-                      count : {{product.count}}
-                    </p>
-                      
-                    <button mat-raised-button 
-                      [disabled] ='product.category == 1'
-                   (click)='cancelOrder(order.order_id,product.id);'
-                    >Cancel Order</button>
-                  </div>
-                 
-
-
-
-                </div>
-                <p>Total  Amount  ₹ {{order.totelAmount}} </p>
-              </div>
-             
-<mat-divider></mat-divider>
+              <p>{{order.DeliveryAddress.name}}</p>
+              <p>{{order.DeliveryAddress.email}}</p>
+              <p>{{order.DeliveryAddress.mobile}}</p>
+              <p>{{order.DeliveryAddress.address}}</p>
+              <p>Expected Delivery Date {{order.delivery_date}}</p>
             </div>
+
+            <div>
+              <div *ngFor='let product of order.products' class="productsDetails">
+
+                <div> <img src="{{product.image}}" class="img-w-h">
+                </div>
+                <div>
+                  <span> name: {{product.name}} </span>
+                  <p>
+                    price : ₹ {{product.price}}
+                  </p>
+
+                  <p>
+                    count : {{product.count}}
+                  </p>
+
+                  <button mat-raised-button color ='warn'[disabled]='product.flag == 1' (click)='cancelOrder(order.order_id,product.id);'>Cancel
+                    Order</button>
+                </div>
+
+
+
+
+              </div>
+              <p>Total Amount ₹ {{order.totelAmount}} </p>
+            </div>
+
+            <mat-divider></mat-divider>
+          </div>
           <!-- </mat-card-content>
         </mat-card> -->
-      </div>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>

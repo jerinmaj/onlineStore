@@ -7,11 +7,11 @@
       </mat-card-header>
      
       <mat-card-content class="card-h">
-           <img mat-card-image src="./../../../assets/image/{{product.image}}" alt="samsung1"> 
+           <img mat-card-image src="{{product.image}}" alt="samsung1"> 
       </mat-card-content>
       <mat-card-actions>
-          <button mat-button  (click)="_addToCart();">ADD TO CART</button>
-          <button mat-button [routerLink]="['/home']">CONTINUE SHOPPING</button>
+          <button mat-button  color="primary" (click)="_addToCart();">ADD TO CART</button>
+          <button mat-button  color="primary"[routerLink]="['/home']">CONTINUE SHOPPING</button>
         </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
@@ -28,7 +28,7 @@
       <div>
           <h2>Description</h2>
           {{product.name}}<br> 
-          price {{product.price}}<br> 
+          price:₹{{product.price}}<br> 
           Description:{{product.description}}
           
       </div>

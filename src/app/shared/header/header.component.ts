@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     // this.global.isGuest=true;
    // this._cartCount();
     this.compInteraction.cartCount$.subscribe(
-      (count :any) => {alert(count);
+      (count :any) => {
       this.counter = count;
       // alert(this.counter);
      }

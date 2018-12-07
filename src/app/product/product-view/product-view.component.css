@@ -1,6 +1,9 @@
- .card-h{
+ /* .card-h{
     height: 340px;
-} 
+    width: 340px;
+    background-color: brown;
+}  */
 .card-h img{
     height: 340px;
+    width: 300px;
 }
